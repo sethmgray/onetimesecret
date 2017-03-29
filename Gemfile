@@ -4,7 +4,7 @@ source "https://rubygems.org/"
 # PRODUCTION: bundle install --deployment --without dev
 
 gem 'addressable', '2.2.6'
-gem 'rack', '1.6.5' # CRIT -- 1.6.5 works
+gem 'rack', '1.6.5' 
 gem 'yajl-ruby', '1.3.0'
 gem 'thin', '1.5.0'
 
@@ -24,11 +24,10 @@ gem 'redis-dump', '0.3.2'
 
 gem 'sysinfo', '0.7.3'
 gem 'annoy', '0.5.6'
-#gem 'rye', '0.9.4'
 
-gem 'httparty', '0.14.0' # CRIT -- upgrade OK
+gem 'httparty', '0.14.0' 
 
-gem 'mail', '2.6.4' #CRIT -- update OK
+gem 'mail', '2.6.4' 
 
 # bundle install --frozen --deployment --without=dev
 group :dev do

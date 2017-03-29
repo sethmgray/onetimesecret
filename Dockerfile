@@ -1,5 +1,5 @@
 # The base image is created on Debian
-FROM ruby:2.4
+FROM ruby:2.4.1
 
 # From OTS instructions
 RUN apt-get update
