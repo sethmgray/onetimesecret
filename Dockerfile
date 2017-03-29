@@ -8,7 +8,7 @@ RUN apt-get install -y ntp libyaml-dev libevent-dev zlib1g zlib1g-dev openssl li
 RUN mkdir ~/sources
 
 # For Ruby
-RUN gem install bundler
+#RUN gem install bundler
 
 #
 # Setting up OTS
@@ -18,9 +18,10 @@ RUN mkdir -p /etc/onetime /var/log/onetime /var/run/onetime /var/lib/onetime
 RUN chown ots /etc/onetime /var/log/onetime /var/run/onetime /var/lib/onetime
 ADD . /home/ots/onetime
 RUN cd /home/ots/onetime
-RUN bundle install --frozen --deployment --without=dev
+RUN gem install bundler
+RUN cd /home/ots/onetime && bundle install --frozen --deployment --without=dev
+RUN cp -R /home/ots/onetime/etc/* /etc/onetime
 
-RUN cp -R ./etc/* /etc/onetime 
-RUN bundle exec thin -e dev -R config.ru -p 7143 start
+EXPOSE 7143 
+ENTRYPOINT cd /home/ots/onetime/ && bundle exec thin -e dev -R config.ru -p 7143 start
 
-EXPOSE 7143

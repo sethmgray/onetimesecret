@@ -1,16 +1,12 @@
 version: '3'
 services: 
   onetimesecret: 
-    # Local image
-    image: 
+    image: "ots-test"
     ports: 
       - "80:7143"
     links:
-      - redis
-    environment:
-      - ""
+      - "redis"
   redis:
-    image:
-      - redis:2.6
-    ports:
-      - "7179:6379"
+    image: "redis:2.6"
+    ports: 
+      - "6379:6379"
