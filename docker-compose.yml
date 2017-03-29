@@ -5,7 +5,7 @@ services:
     ports: 
       - "80:7143"
     links:
-      - "redis"
+      - "redis:redis"
   redis:
     image: "redis:2.6"
     ports: 
