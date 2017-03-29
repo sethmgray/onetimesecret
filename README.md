@@ -112,3 +112,25 @@ You run your configuration from `/etc/onetime/config` you will also need to copy
 
     $ cd /path/2/onetimesecret
     $ sudo cp -r etc/locale /etc/onetime/
+
+## Dockerized
+This application has been dockerized and the following upgrades have been made to v0.10.0:
+    - upgraded to Ruby 2.4.1
+    - updated the following insecure gems (per gemnasium)
+        - rack
+        - mail
+        - httparty
+There exist other gems to be upgraded, but this will introduce compatibility changes that will require additional changes to application source code.
+
+### Building and running
+This container is also avaiable from DockerHub under the name ['civisanalytics/onetimesecret'](https://hub.docker.com/r/civisanalytics/onetimesecret/), which builds automatically from the 'dockerized' branch of this repository.
+
+In order to build the container locally, `cd` into the directory and run `docker build -t onetimesecret .` Also included in this repository is the docker-compose.yaml file needed to stand up the environment. 
+
+
+### Additional improvements
+These are additional improvements that can be made to this repository:
+    - updating the Redis version from 2.6 to 3.2
+    - passing Redis configuratin to the container created by docker-compose
+    - reviewing authentication and access method of the redis server
+    - 

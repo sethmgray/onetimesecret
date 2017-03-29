@@ -1,7 +1,7 @@
 version: '3'
 services: 
   onetimesecret: 
-    image: "ots-test"
+    image: "onetimesecret"
     ports: 
       - "80:7143"
     links:
