@@ -22,6 +22,12 @@ RUN gem install bundler
 RUN cd /home/ots/onetime && bundle install --frozen --deployment --without=dev
 RUN cp -R /home/ots/onetime/etc/* /etc/onetime
 
+# Pull in variables --- THESE NEED TO BE READ AT RUNTIME. MOVE TO ENTRYPOINT
+RUN echo $OTS_DOMAIN | xargs -I domurl sed -ir 's/:domain:/:domain: domurl/g' /etc/onetime/config \
+&& echo $OTS_HOST | xargs -I hosturl sed -ir 's/:host:/:host: hosturl/g' /etc/onetime/config \
+&& echo $OTS_SSL | xargs -I hostssl sed -ir 's/:ssl:/:ssl: hostssl/g' /etc/onetime/config \
+&& dd if=/dev/urandom bs=40 count=1 | openssl sha1 | grep stdin | awk '{print $2}' | xargs -I key sed -ir 's/:secret:/:secret: key/g' /etc/onetime/config
+
 EXPOSE 7143 
 ENTRYPOINT cd /home/ots/onetime/ && bundle exec thin -e dev -R config.ru -p 7143 start
 
