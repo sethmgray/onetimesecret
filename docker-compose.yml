@@ -7,8 +7,8 @@ services:
     links:
       - "redis:redis"
     environment:
-      - OTS_DOMAIN=onetimesecret.civisanalytics.com
-      - OTS_HOST=civisanalytics.com
+      - OTS_DOMAIN=civisanalytics.com
+      - OTS_HOST=onetimesecret.civisanalytics.com
       - OTS_SSL=true
   redis:
     image: "redis:3.2"

@@ -3,7 +3,7 @@
   :domain:
   :ssl:
   # NOTE Once the secret is set, do not change it (keep a backup offsite)
-  :secret: CHANGEME
+  :secret: 
 :redis:
   :uri: 'redis://redis:6379/0'
   :config: /etc/onetime/redis.conf
