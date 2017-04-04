@@ -1,7 +1,7 @@
 :site:
-  :host: localhost:7143
-  :domain: localhost
-  :ssl: false
+  :host:
+  :domain:
+  :ssl:
   # NOTE Once the secret is set, do not change it (keep a backup offsite)
   :secret: CHANGEME
 :redis:
