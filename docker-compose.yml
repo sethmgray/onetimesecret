@@ -12,5 +12,3 @@ services:
       - OTS_SSL=true
   redis:
     image: "redis:3.2"
-    ports: 
-      - "6379:6379"
