@@ -1,0 +1,14 @@
+version: '3'
+services: 
+  onetimesecret: 
+    image: "enviance/onetimesecret:dockerized"
+    ports: 
+      - "80:7143"
+    links:
+      - "redis:redis"
+    environment:
+      - OTS_DOMAIN=enviance.com
+      - OTS_HOST=ots.enviance.com
+      - OTS_SSL=true
+  redis:
+    image: "redis:3.2"
